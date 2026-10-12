@@ -1,0 +1,290 @@
+/* ==========================================================================
+   1. VARIABLES & DESIGN SYSTEM (Inspiré IUT de Rodez)
+   ========================================================================== */
+:root {
+    --color-primary: #A6192E;       /* Rouge Institutionnel Rodez */
+    --color-primary-hover: #821020; /* Rouge Sombre interactif */
+    --color-text-dark: #2D3142;     /* Anthracite pour la lisibilité */
+    --color-text-light: #F8F9FA;    /* Blanc cassé pour les contrastes */
+    --color-bg-light: #F4F5F7;      /* Fond de page neutre */
+    --color-surface: #FFFFFF;       /* Fond des cartes et blocs */
+    --color-border: #DDE1E6;        /* Bordures subtiles */
+    --color-success: #2A7B4C;       /* Vert validation */
+    --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --border-radius: 8px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* ==========================================================================
+   2. REINITIALISATION & STYLES GLOBAUX
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   3. STRUCTURE ET LAYOUT (HEADER / NAV / FOOTER)
+   ========================================================================== */
+.main-header {
+    background-color: var(--color-surface);
+    border-bottom: 4px solid var(--color-primary);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo-block {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--color-primary);
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    min-height: 75vh;
+}
+
+.main-footer {
+    background-color: var(--color-text-dark);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   4. COMPOSANTS (BOUTONS & TYPOGRAPHIE)
+   ========================================================================== */
+h1, h2, h3 {
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+/* ==========================================================================
+   5. FORMULAIRES (COMMUNS ET STRUCTURES DE SAISIE)
+   ========================================================================== */
+.form-card {
+    background-color: var(--color-surface);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(166, 25, 46, 0.15);
+}
+
+.radio-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-bg-light);
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.radio-label:hover {
+    border-color: var(--color-border);
+}
+
+fieldset {
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+legend {
+    font-weight: 700;
+    padding: 0 0.5rem;
+    color: var(--color-primary);
+}
+
+.required-star {
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.cache {
+    display: none !important;
+}
+
+/* ==========================================================================
+   6. PAGES SPECIFIQUES & GRILLES DE CONTENU
+   ========================================================================== */
+/* Accueil */
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    background-color: var(--color-surface);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 3rem;
+}
+
+.hero-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.info-card {
+    background-color: var(--color-surface);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--color-primary);
+}
+
+/* Dashboard */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .hero-section {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+    .hero-img {
+        height: 200px;
+    }
+    .form-card {
+        padding: 1.5rem;
+    }
+}
