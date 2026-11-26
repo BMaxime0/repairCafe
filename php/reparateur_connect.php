@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h2>Espace Réparateur</h2>
             </div>
             <ul class="nav-menu">
-                <li><a href="../html/Acceuil.html" class="nav-link">Accueil</a></li>
+                <li><a href="../index.html" class="nav-link">Accueil</a></li>
                 <li><a href="user_connect.php" class="nav-link">Espace Client</a></li>
             </ul>
         </nav>
